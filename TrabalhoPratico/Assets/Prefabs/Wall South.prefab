@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5231100786876273063}
   - component: {fileID: 7750654498613113827}
   - component: {fileID: 893626177498945601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 595153275508364424}
   - component: {fileID: 4302655038200343748}
   - component: {fileID: 2750660622238526482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3840792340755055249}
-  - component: {fileID: 4138133668968642554}
   - component: {fileID: 8612696339614228059}
   m_Layer: 0
   m_Name: Wall South
@@ -285,27 +284,6 @@ Transform:
   - {fileID: 3683127488865313860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4138133668968642554
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8161613087716974786}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 20, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8612696339614228059
 MonoBehaviour:
   m_ObjectHideFlags: 0

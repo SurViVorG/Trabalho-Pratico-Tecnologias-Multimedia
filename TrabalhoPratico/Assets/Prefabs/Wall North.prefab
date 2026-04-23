@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 587464333538176309}
   - component: {fileID: 5799254448683148908}
   - component: {fileID: 5198115364638385800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9216045496781155686}
   - component: {fileID: 241053568984934259}
-  - component: {fileID: 5719093801565280402}
   m_Layer: 0
   m_Name: Wall North
   m_TagString: Wall
@@ -179,27 +178,6 @@ MonoBehaviour:
   wallRight: {fileID: 2917076180484814257}
   holeSize: 2.5
   arenaHalfWidth: 9
---- !u!65 &5719093801565280402
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4362118574008659985}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 20, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5762044160398967020
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +191,7 @@ GameObject:
   - component: {fileID: 1331604327962022295}
   - component: {fileID: 3709415387142562510}
   - component: {fileID: 5574507534122659037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
