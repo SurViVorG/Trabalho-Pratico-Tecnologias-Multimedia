@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6376473952276707622}
   - component: {fileID: 5468931287846591686}
   - component: {fileID: 8042383686496010054}
+  - component: {fileID: 7673939427808916765}
   m_Layer: 0
   m_Name: Wall Left
   m_TagString: Untagged
@@ -106,12 +107,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7673939427808916765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267615967925655814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d48eee97255b064cbfa164bc8d27ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallHit
 --- !u!1 &3355390243131686120
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 3355390243131686120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 2, z: 0.02}
+  m_LocalPosition: {x: 3.2793, y: 0.97308, z: 0.77831}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -181,7 +194,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -199,6 +212,7 @@ GameObject:
   - component: {fileID: 1562617380376751393}
   - component: {fileID: 4806279484957465661}
   - component: {fileID: 8729287087177911931}
+  - component: {fileID: 7402101725009990261}
   m_Layer: 0
   m_Name: Wall Right
   m_TagString: Untagged
@@ -293,9 +307,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7402101725009990261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566117871948256611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d48eee97255b064cbfa164bc8d27ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallHit

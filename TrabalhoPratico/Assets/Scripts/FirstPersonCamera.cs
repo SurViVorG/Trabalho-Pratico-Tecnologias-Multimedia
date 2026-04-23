@@ -6,12 +6,13 @@ public class FirstPersonCamera : MonoBehaviour
     [Header("Câmara")]
     public Transform playerBody;
     public float mouseSensitivity = 0.3f;
+    public float distanceFromPlayer = 6f;
+    public float heightOffset = 3f;
 
-    private float xRotation = 0f;
+    private float yRotation = 0f;
 
     void Start()
     {
-        // Esconde e bloqueia o cursor no centro do ecrã
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -21,14 +22,17 @@ public class FirstPersonCamera : MonoBehaviour
         if (Mouse.current == null) return;
 
         float mouseX = Mouse.current.delta.x.ReadValue() * mouseSensitivity;
-        float mouseY = Mouse.current.delta.y.ReadValue() * mouseSensitivity;
+        yRotation += mouseX;
 
-        // Rotação vertical da câmara (olhar para cima/baixo)
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f); // limita para não virar ao contrário
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // Posição atrás e acima do jogador
+        Quaternion rotation = Quaternion.Euler(0, yRotation, 0);
+        Vector3 offset = rotation * new Vector3(0, heightOffset, -distanceFromPlayer);
+        transform.position = playerBody.position + offset;
 
-        // Rotação horizontal do corpo do jogador
-        playerBody.Rotate(Vector3.up * mouseX);
+        // Câmara olha sempre para o jogador
+        transform.LookAt(playerBody.position + Vector3.up);
+
+        // Roda o corpo do jogador com o rato
+        playerBody.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
