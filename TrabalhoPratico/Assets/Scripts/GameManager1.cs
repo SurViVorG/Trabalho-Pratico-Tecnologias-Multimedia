@@ -60,18 +60,16 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
 
         // Guarda o score
-         if (HighscoreManager.Instance != null)
+        if (HighscoreManager.Instance != null)
             HighscoreManager.Instance.SaveScore(currentWave);
 
         gameOverPanel.SetActive(true);
         finalWaveText.text = "Sobreviveste " + currentWave + " ondas!";
-
-        // Para todas as paredes em movimento
-        WallMover[] walls = FindObjectsByType<WallMover>(FindObjectsSortMode.None);
-        foreach (WallMover w in walls) w.enabled = false;
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        WallMover[] walls = FindObjectsByType<WallMover>(FindObjectsSortMode.None);
+        foreach (WallMover w in walls) w.enabled = false;
     }
 
     public void RestartGame()
