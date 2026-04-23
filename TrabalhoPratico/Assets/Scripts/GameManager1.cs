@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         isGameOver = true;
+
+        // Guarda o score
+         if (HighscoreManager.Instance != null)
+            HighscoreManager.Instance.SaveScore(currentWave);
+
         gameOverPanel.SetActive(true);
         finalWaveText.text = "Sobreviveste " + currentWave + " ondas!";
 
@@ -72,6 +77,10 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void GoToMainMenu()
+    {
+    SceneManager.LoadScene("MainMenu");
     }
 
     void UpdateUI()

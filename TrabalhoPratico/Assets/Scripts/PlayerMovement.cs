@@ -10,6 +10,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+    // Muda a cor conforme a personagem escolhida
+        Renderer rend = GetComponent<Renderer>();
+        if (rend != null)
+        {
+            switch (CharacterSelector.selectedCharacter)
+            {
+                case 0: rend.material.color = Color.blue;   break;
+                case 1: rend.material.color = Color.red;    break;
+                case 2: rend.material.color = Color.green;  break;
+            }
+        }
     }
 
     void FixedUpdate()
