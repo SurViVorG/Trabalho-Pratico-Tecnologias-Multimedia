@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             // Aplica o volume guardado
         float savedVolume = PlayerPrefs.GetFloat("GameVolume", 0.5f);
         AudioListener.volume = savedVolume;
-        
+
         gameOverPanel.SetActive(false);
         UpdateUI();
     }
@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         isGameOver = true;
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayGameOver();
 
         // Guarda o score
         if (HighscoreManager.Instance != null)

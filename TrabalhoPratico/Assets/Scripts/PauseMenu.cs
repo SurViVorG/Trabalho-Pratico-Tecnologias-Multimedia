@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,18 +9,30 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Só funciona na GameScene
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "GameScene") return;
+        
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (isPaused) ResumeGame();
             else PauseGame();
         }
     }
+        
+    void Awake()
+    {
+        // Garante que o painel começa desativado
+        if (pausePanel != null) pausePanel.SetActive(false);
+        isPaused = false;
+        Time.timeScale = 1f;
+    }
+
 
     public void PauseGame()
     {
         isPaused = true;
         pausePanel.SetActive(true);
-        Time.timeScale = 0f; // congela o jogo
+        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -41,7 +54,11 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        isPaused = false;
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        if (pausePanel != null) pausePanel.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
 }
