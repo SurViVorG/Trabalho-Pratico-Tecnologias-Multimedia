@@ -174,8 +174,8 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: -1}
   speed: 5
   destroyZ: 12
-  wallLeft: {fileID: 0}
-  wallRight: {fileID: 0}
+  wallLeft: {fileID: 5400278861343884238}
+  wallRight: {fileID: 7172711907627631554}
   holeSize: 2.5
   arenaHalfWidth: 9
 --- !u!1 &6566117871948256611

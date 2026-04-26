@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private float arenaLimit = 8f;
+    private Animator animator;
 
     void Start()
     {
@@ -23,9 +24,24 @@ public class PlayerMovement : MonoBehaviour
     void AplicarPersonagem()
     {
         int id = PlayerPrefs.GetInt("SelectedCharacter", 0);
-
         if (kyleModel != null)        kyleModel.SetActive(id == 0);
         if (survivalistModel != null) survivalistModel.SetActive(id == 1);
+
+        // Procura o animator DEPOIS de ativar o modelo
+        StartCoroutine(FindAnimatorNextFrame());
+    }
+
+    System.Collections.IEnumerator FindAnimatorNextFrame()
+    {
+        // Espera um frame para o modelo estar ativo
+        yield return null;
+        
+        animator = GetComponentInChildren<Animator>();
+        
+        if (animator != null)
+            Debug.Log("Animator encontrado: " + animator.gameObject.name);
+        else
+            Debug.Log("Animator NAO encontrado!");
     }
 
     void Update()
@@ -59,17 +75,19 @@ public class PlayerMovement : MonoBehaviour
             if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)  input.x = -1;
         }
 
+
+        // Atualiza o animator sempre — dentro ou fora do if
+        if (animator != null)
+            animator.SetFloat("Speed", input.magnitude, 0.1f, Time.fixedDeltaTime);
+
         if (input.magnitude > 0.1f)
         {
-            // Direção relativa à rotação atual do jogador
             Vector3 movement = (transform.forward * input.y + transform.right * input.x).normalized;
             movement.y = 0f;
 
-            // Rotação suave para a direção do movimento
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 
-            // Move na direção para onde está virado
             Vector3 newPos = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
             newPos.x = Mathf.Clamp(newPos.x, -arenaLimit, arenaLimit);
             newPos.z = Mathf.Clamp(newPos.z, -arenaLimit, arenaLimit);
