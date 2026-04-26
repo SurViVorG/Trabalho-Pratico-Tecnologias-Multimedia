@@ -6,6 +6,9 @@ public class WallHit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayHit();
+
             GameManager.Instance.LoseLife();
             Destroy(transform.parent.gameObject);
         }

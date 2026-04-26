@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+            // Aplica o volume guardado
+        float savedVolume = PlayerPrefs.GetFloat("GameVolume", 0.5f);
+        AudioListener.volume = savedVolume;
+        
         gameOverPanel.SetActive(false);
         UpdateUI();
     }
