@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject highscorePanel;
     public AudioSource musicSource;
     public UnityEngine.UI.Slider volumeSlider;
+    public HighscoreManager highscoreManager; 
 
     void Start()
     {
@@ -50,10 +51,16 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenHighscores()
     {
+        Debug.Log("OpenHighscores chamado!");
         mainPanel.SetActive(false);
+        Debug.Log("HighscorePanel ativo: " + highscorePanel.activeSelf);
         highscorePanel.SetActive(true);
-        HighscoreManager hs = FindFirstObjectByType<HighscoreManager>();
-        if (hs != null) hs.ShowScores();
+        Debug.Log("HighscorePanel ativo depois: " + highscorePanel.activeSelf);
+
+        if (highscoreManager != null)
+            highscoreManager.ShowScores();
+        else
+            Debug.Log("highscoreManager é null!");
     }
 
     public void BackToMain()
